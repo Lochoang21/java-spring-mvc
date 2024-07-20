@@ -2,6 +2,7 @@ package vn.hoidanit.laptopshop.controller;
 
 
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.repository.UserRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ public class UserController {
 
     private UserService userService;
 
+
     // Dependency injection
     public UserController(UserService userService) {
         this.userService = userService;
@@ -24,9 +26,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
-
-        String test = this.userService.handleHello();
-        model.addAttribute("anc", test);
+        model.addAttribute("anc", "test");
         model.addAttribute("hoidanit", "from controller with model");
         return "hello";
     }
@@ -39,6 +39,7 @@ public class UserController {
     @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
         System.out.println("Rung here" + hoidanit);
+        this.userService.handleSaveUser(hoidanit);
         return "hello";
     }
 }
