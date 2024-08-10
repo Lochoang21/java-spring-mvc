@@ -27,7 +27,6 @@ public class OrderDetail {
         this.order = order;
         this.product = product;
     }
-
     //order_id: long
     @ManyToOne
     @JoinColumn(name = "order_id")
