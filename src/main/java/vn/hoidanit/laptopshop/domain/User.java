@@ -2,7 +2,6 @@ package vn.hoidanit.laptopshop.domain;
 
 import java.util.List;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,18 +35,34 @@ public class User {
      @OneToMany(mappedBy = "user")
     List<Order> orders;
 
-
-    public User(long id, String email, String password, String fullName, String address, String phone) {
+    
+    public User(long id, String email, String password, String fullName, String address, String phone, String avatar) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.fullName = fullName;
         this.address = address;
         this.phone = phone;
+        this.avatar = avatar;
+        this.role = new Role();
     }
-    
     public User() {
         
+    }
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public long getId() {

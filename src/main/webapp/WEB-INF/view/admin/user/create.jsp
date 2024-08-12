@@ -45,7 +45,7 @@
                                         <h3>Creste User</h3>
                                         <hr />
                                         <form:form method="post" action="/admin/user/create" modelAttribute="newUser"
-                                            class="row">
+                                            class="row" enctype="multipart/form-data">
                                             <div class="mb-3 col-12 col-md-6">
                                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                                                 <form:input type="email" class="form-control" id="exampleInputEmail1"
@@ -75,14 +75,14 @@
                                             <div class="mb-3 col-12 col-md-6">
                                                 <label for="avatarFile" class="form-label">Avatar</label>
                                                 <input class="form-control" type="file" id="avatarFile"
-                                                    accept=".png, .jpg, .jpeg">
+                                                    accept=".png, .jpg, .jpeg" name="hoidanitFile" />
                                             </div>
                                             <div class="mb-3 col-12 col-md-6">
-                                                <label for="formFile" class="form-label">Role</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>ADMIN</option>
-                                                    <option value="2">USER</option>
-                                                </select>
+                                                <label for="formFile" class="form-label">Role: </label>
+                                                <form:select class="form-select" path="role.name">
+                                                    <form:option value="ADMIN">ADMIN</form:option>
+                                                    <form:option value="USER">USER</form:option>
+                                                </form:select>
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <img src="" id="avatarPreview" alt="avatar preview"
