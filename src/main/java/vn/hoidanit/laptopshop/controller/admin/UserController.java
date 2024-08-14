@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.servlet.ServletContext;
 
 @Controller
 public class UserController {
@@ -31,7 +30,7 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
 
     // Dependency injection
-    public UserController(UploadService uploadService, UserService userService, ServletContext servletContext,
+    public UserController(UploadService uploadService, UserService userService, 
     PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
