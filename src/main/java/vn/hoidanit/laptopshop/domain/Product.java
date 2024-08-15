@@ -36,6 +36,9 @@ public class Product {
         this.factory = factory;
         this.target = target;
     }
+    public Product() {
+
+}
 
     public long getId() {
         return id;

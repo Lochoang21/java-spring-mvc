@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +28,42 @@
                         <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
                         <li class="breadcrumb-item active">Products</li>
                     </ol>
-                    <div class="">Table Product</div>
+                    <div class="mt-5">
+                        <div class="row">
+                            <div class="col-md-6 col-12 mx-auto"></div>
+                            <div class="d-flex justify-content-between">
+                                <h3>Table Product</h3>
+                                <a type="button" class="btn btn-primary" href="/admin/product/create">Create Product</a>
+                            </div>
+                            <hr />
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Factory</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <!-- <c:forEach var="user" items="${users1}">
+                                        <tr>
+                                            <td>${user.id}</td>
+                                            <td>${user.email}</td>
+                                            <td>${user.fullName}</td>
+                                            <td>
+                                                <a href="/admin/user/${user.id}" type="button" class="btn btn-success">View</a>
+                                                <a href="/admin/user/update/${user.id}" type="button" class="btn btn-warning">Update</a>
+                                                <a href="/admin/user/delete/${user.id}" type="button" class="btn btn-danger">Deleted</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </main>
             <jsp:include page="../layout/footer.jsp"/>

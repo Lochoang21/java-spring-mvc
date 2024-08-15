@@ -67,6 +67,7 @@
 
 .btn.border-secondary {
     transition: 0.5s;
+    border: none;
 }
 
 .btn.border-secondary:hover {
