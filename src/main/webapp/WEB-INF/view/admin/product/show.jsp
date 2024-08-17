@@ -48,18 +48,19 @@
                                 </thead>
                                 <tbody>
                                     
-                                    <!-- <c:forEach var="user" items="${users1}">
+                                    <c:forEach var="product" items="${products}">
                                         <tr>
-                                            <td>${user.id}</td>
-                                            <td>${user.email}</td>
-                                            <td>${user.fullName}</td>
+                                            <td>${product.id}</td>
+                                            <td>${product.name}</td>
+                                            <td>${product.price}</td>
+                                            <td>${product.factory}</td>
                                             <td>
-                                                <a href="/admin/user/${user.id}" type="button" class="btn btn-success">View</a>
-                                                <a href="/admin/user/update/${user.id}" type="button" class="btn btn-warning">Update</a>
-                                                <a href="/admin/user/delete/${user.id}" type="button" class="btn btn-danger">Deleted</a>
+                                                <a href="/admin/product/${product.id}" type="button" class="btn btn-success">View</a>
+                                                <a href="/admin/product/update/${product.id}" type="button" class="btn btn-warning">Update</a>
+                                                <a href="/admin/product/delete/${product.id}" type="button" class="btn btn-danger">Deleted</a>
                                             </td>
                                         </tr>
-                                    </c:forEach> -->
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>

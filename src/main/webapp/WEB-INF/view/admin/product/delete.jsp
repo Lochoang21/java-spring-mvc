@@ -37,7 +37,7 @@
                                 Bạn có muốn xóa sản phẩm này không ?
                               </div>
     
-                              <form:form method="post" action="/admin/user/delete" modelAttribute="newUser">
+                              <form:form method="post" action="/admin/product/delete" modelAttribute="newProduct">
                                 <div class="mb-3" style="display: none;">
                                     <label for="exampleInputPassword1" class="form-label">Id</label>
                                     <form:input value = "${id}" type="text" class="form-control" id="exampleInputPassword1" path="id" />
