@@ -85,7 +85,7 @@ public class ProductController {
         return "redirect:/admin/product";
     }
 
-    @RequestMapping("/admin/product/{id}")
+    @GetMapping("/admin/product/{id}")
     public String getProductDetailPage(Model model, @PathVariable long id) {
         Product pr = this.productService.fetchProductById(id).get();
         model.addAttribute("product", pr);
