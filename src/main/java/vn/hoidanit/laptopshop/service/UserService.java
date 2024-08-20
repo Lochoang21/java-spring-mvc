@@ -1,6 +1,8 @@
 package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.hoidanit.laptopshop.domain.Role;
@@ -12,6 +14,7 @@ import vn.hoidanit.laptopshop.repository.UserRepository;
 @Service
 public class UserService {
 
+    
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     
@@ -27,8 +30,8 @@ public class UserService {
     public List <User> getAllUser(){
         return this.userRepository.findAll();
     }
-    public List <User> getUserByEmail(String email){
-        return this.userRepository.findByEmail(email);
+    public List <User> getUserOneByEmail(String email){
+        return this.userRepository.findOneByEmail(email);
     }
     public User getUserById(long id){
         return this.userRepository.findById(id);
@@ -55,5 +58,9 @@ public class UserService {
 
     public boolean checkEmailExist(String email){
         return this.userRepository.existsByEmail(email);
+    }
+
+    public User getUserByEmail(String email){
+        return this.userRepository.findByEmail(email);
     }
 }
