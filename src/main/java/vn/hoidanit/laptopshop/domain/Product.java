@@ -24,7 +24,7 @@ public class Product {
 
     @NotNull
     @DecimalMin(value = "0", inclusive = false, message = "Giá phải lớn hơn 0")
-    private String price;
+    private double price;
 
     private String image;
 
@@ -46,7 +46,7 @@ public class Product {
     private String factory;
     private String target;
     
-    public Product(long id, String name, String price, String image, String detailDesc, String shortDesc, long quantity,
+    public Product(long id, String name, double price, String image, String detailDesc, String shortDesc, long quantity,
             long sold, String factory, String target) {
         this.id = id;
         this.name = name;
@@ -79,11 +79,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
