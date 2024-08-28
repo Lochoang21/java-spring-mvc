@@ -1,11 +1,16 @@
 package vn.hoidanit.laptopshop.controller.client;
 
+import java.util.List;
+import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import vn.hoidanit.laptopshop.domain.Cart;
+import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Product;
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.ProductService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,8 +49,33 @@ public class ItemController {
     }
     
     @GetMapping("/cart")
-    public String getDenyPage(Model model) {
-       
+    public String getCartPage(Model model,HttpServletRequest request ) {
+       User curentUser = new User();
+        HttpSession session = request.getSession(false);
+        long id = (long) session.getAttribute("id");
+        curentUser.setId(id);
+
+        Cart cart = this.productService.fetchByUser(curentUser);
+
+        List<CartDetail> cartDetail = cart == null ? new ArrayList<CartDetail>() :  cart.getCartDetails();
+
+        double totalPrice = 0;
+        for(CartDetail cd : cartDetail ){
+            totalPrice = cd.getPrice() * cd.getQuantity();
+        }
+        model.addAttribute("cartDetails", cartDetail);
+        model.addAttribute("totalPrice", totalPrice);
         return "client/cart/show";
     }
+
+    @PostMapping("/delete-cart-product/{id}")
+    public String deleteCartDetail(@PathVariable long id, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long cartDetailId = id;
+        this.productService.handleRemoveCartDetail(cartDetailId, session);
+        return "redirect:/cart";
+    }
+    
+
+
 }
