@@ -18,7 +18,8 @@ public class OrderDetail {
     private long quantity;
     private double price;
 
-    
+    public OrderDetail() {
+    }
 
     public OrderDetail(long id, long quantity, double price, Order order, Product product) {
         this.id = id;
