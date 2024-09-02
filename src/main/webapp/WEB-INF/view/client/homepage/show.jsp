@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -62,7 +63,7 @@
                                 <div class="col-lg-8 text-end">
                                     <ul class="nav nav-pills d-inline-flex text-center mb-5">
                                         <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
+                                            <a class="d-flex m-2 py-2 bg-light rounded-pill active" href="/products">
                                                 <span class="text-dark" style="width: 130px;">All Products</span>
                                             </a>
                                         </li>
@@ -87,7 +88,7 @@
                                                                     <a href="/product/${product.id}">${product.name}</a>
                                                                 </h4>
                                                                 <p style="font-size: 13px;">${product.shortDesc}</p>
-                                                                <div class="d-flex flex-lg-wrap justify-content-center">
+                                                                <div class="d-flex flex-lg-wrap justify-content-center flex-column">
                                                                     <p style="font-size: 15px; text-align: center; width: 100%;" class="text-dark fw-bold mb-3">
                                                                         <fmt:formatNumber type = "number" value = "${product.price}"/>đ</p>
                                                                     <form action="/add-product-to-cart/${product.id}" method="post">
@@ -102,10 +103,35 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </c:forEach>                                                               
+                                                </c:forEach>
+                                                <div class="pagination d-flex justify-content-center mt-5">
+                                                    <li class="page-item">
+                                                        <a class="${1 eq currentHomePage ? 'disabled page-link' : 'page-link'}"
+                                                            href="/?page=${currentHomePage - 1}" aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                    <c:forEach begin="0" end="${totalHomePages - 1}" varStatus="loop">
+                                                        <li class="page-item">
+                                                            <a class="${(loop.index + 1) eq currentHomePage ? 'active page-link' : 'page-link'}"
+                                                                href="/?page=${loop.index + 1}">
+                                                                ${loop.index + 1}
+                                                            </a>
+                                                        </li>
+                                                    </c:forEach>
+                                                    <li class="page-item">
+                                                        <a class="${totalHomePages eq currentHomePage ? 'disabled page-link' : 'page-link'}"
+                                                            href="/?page=${currentHomePage + 1}" aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+    
+                                                </div>                                           
                                             </div>
                                         </div>
+                                        
                                     </div>
+                                    
                                 </div>
                                
                             </div>

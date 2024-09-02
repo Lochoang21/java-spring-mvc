@@ -28,7 +28,7 @@
                         <div class="collapse navbar-collapse bg-white justify-content-between mx-5" id="navbarCollapse">
                             <div class="navbar-nav">
                                 <a href="/" class="nav-item nav-link active">Home</a>
-                                <a href="#" class="nav-item nav-link">Product</a>
+                                <a href="products" class="nav-item nav-link">Product</a>
 
 
                             </div>
@@ -58,7 +58,7 @@
                                                 </div>
                                             </li>
                                             <li><a class="dropdown-item" href="#">Quản lý tài khoản</a></li>
-                                            <li><a class="dropdown-item" href="#">Lịch sử mua hàng</a></li>
+                                            <li><a class="dropdown-item" href="/order-history">Lịch sử mua hàng</a></li>
                                             <li>
                                                 <hr class="dropdown-divider">
                                             </li>
