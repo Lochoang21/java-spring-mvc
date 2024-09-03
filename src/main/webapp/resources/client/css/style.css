@@ -12,7 +12,12 @@
      visibility: visible;
      opacity: 1;
  }
-
+.disabled-link{
+    pointer-events: none;
+    cursor: default;
+    color: gray; /* Màu sắc để hiển thị thẻ a bị vô hiệu hóa */
+    text-decoration: none;
+}
  .back-to-top {
     position: fixed;
     right: 30px;

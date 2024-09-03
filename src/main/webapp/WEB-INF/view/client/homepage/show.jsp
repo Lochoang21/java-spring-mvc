@@ -106,7 +106,7 @@
                                                 </c:forEach>
                                                 <div class="pagination d-flex justify-content-center mt-5">
                                                     <li class="page-item">
-                                                        <a class="${1 eq currentHomePage ? 'disabled page-link' : 'page-link'}"
+                                                        <a class="${1 eq currentHomePage ? 'disabled-link page-link' : 'page-link'}"
                                                             href="/?page=${currentHomePage - 1}" aria-label="Previous">
                                                             <span aria-hidden="true">&laquo;</span>
                                                         </a>
@@ -120,7 +120,7 @@
                                                         </li>
                                                     </c:forEach>
                                                     <li class="page-item">
-                                                        <a class="${totalHomePages eq currentHomePage ? 'disabled page-link' : 'page-link'}"
+                                                        <a class="${totalHomePages eq currentHomePage ? 'disabled-link page-link' : 'page-link'}"
                                                             href="/?page=${currentHomePage + 1}" aria-label="Next">
                                                             <span aria-hidden="true">&raquo;</span>
                                                         </a>
