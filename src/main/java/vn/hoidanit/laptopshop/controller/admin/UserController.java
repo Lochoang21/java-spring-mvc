@@ -71,7 +71,7 @@ public class UserController {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        Pageable pageable = PageRequest.of(page - 1, 1);
+        Pageable pageable = PageRequest.of(page - 1, 5);
         Page <User> userPage = this.userService.getAllUser(pageable);
         List<User> listUsers = userPage.getContent();
         //List<User> users = this.userService.getAllUser();
